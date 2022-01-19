@@ -9,13 +9,11 @@ type Team struct {
 
 // Player struct
 type Player struct {
-	ID       int    `json:"id"`
-	Name     string `json:"name"`
-	Position string `json:"position"`
-}
-
-// TeamPlayer struct
-type TeamPlayer struct {
-	PlayerId *Player `json:"playerid"`
-	TeamId   *Team   `json:"teamid"`
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	Position    string `json:"position"`
+	Nationality string `json:"nationality"`
+	Goals       string `json:"goals"`
+	Assists     string `json:"assists"`
+	TeamID      int    `json:"teamid"`
 }

@@ -24,10 +24,13 @@ func (a *App) Initialize() {
 // SetRouters sets the all required routers
 func (a *App) setRouters() {
 	// Routing for handling
-	a.Post("/api/createTeam", a.handleRequest(handler.CreateTeam))
-	a.Post("/api/addPlayer", a.handleRequest(handler.AddPlayer))
-	a.GET("/api/getTeam", a.handleRequest(handler.GetTeam))
-	a.GET("/api/getPlayer", a.handleRequest(handler.GetPlayer))
+	a.Post("/api/teams", a.handleRequest(handler.CreateTeam))
+	a.Post("/api/players", a.handleRequest(handler.AddPlayer))
+	a.GET("/api/teams", a.handleRequest(handler.GetTeams))
+	a.GET("/api/teams/{id}", a.handleRequest(handler.GetTeam))
+	a.GET("/api/players", a.handleRequest(handler.GetPlayers))
+	a.GET("/api/players/{id}", a.handleRequest(handler.GetPlayer))
+	a.GET("/api/players/teams/{teamid}", a.handleRequest(handler.GetPlayerByTeamID))
 }
 
 // GET wraps the routers for GET method
@@ -55,6 +58,8 @@ func (a *App) Run(config *config.Config) {
 	port := fmt.Sprintf(":%s",
 		config.APPS.Port,
 	)
+
+	log.Println("Listening on port : " + port)
 
 	log.Fatal(http.ListenAndServe(port, a.Router))
 }
