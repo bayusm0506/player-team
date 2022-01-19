@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/bayusm0506/player-team/app/handler"
 	"github.com/bayusm0506/player-team/config"
 	"github.com/gorilla/mux"
 )
@@ -22,7 +23,11 @@ func (a *App) Initialize() {
 
 // SetRouters sets the all required routers
 func (a *App) setRouters() {
-
+	// Routing for handling
+	a.Post("/api/createTeam", a.handleRequest(handler.CreateTeam))
+	a.Post("/api/addPlayer", a.handleRequest(handler.AddPlayer))
+	a.GET("/api/getTeam", a.handleRequest(handler.GetTeam))
+	a.GET("/api/getPlayer", a.handleRequest(handler.GetPlayer))
 }
 
 // GET wraps the routers for GET method
