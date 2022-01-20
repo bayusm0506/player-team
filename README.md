@@ -104,4 +104,7 @@ JSON :
 
 #### Author originally
 Bayu Setra Maulana [bayusm.com]
+
+Postman Collection : https://www.getpostman.com/collections/e6ac7bc82c04bdd3688d
+Design Schema : https://sqlspy.io/guest/tables/ugxhewvyndg3mq
 ```
